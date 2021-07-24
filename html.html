@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            background-color: rgba(191, 58, 235, 0.501);
+            box-shadow: 2px  ; 
+        }
+        body{
+            width: 100vw;
+            min-height: 100vh;
+            background-color: rgb(245, 191, 191);
+            overflow-x:hidden ;
+            overflow-y: hidden;
+            background-image: url("/img.jpg") ;
+            background-size: 100%;
+        }
+        #p{
+            color: rgb(238, 216, 236);
+            font-size: large;
+            font-weight: 600;
+            border: 2px solid rgb(233, 159, 156);
+            width: fit-content;
+            padding: 3px;
+            padding-left: 12px;
+            padding-right: 12px;
+            visibility: hidden;
+            display: inline;
+            border-radius: 10px;     
+        }
+
+        #p2{
+            display: inline;
+            visibility: hidden;
+            font-weight: 800;
+            color: rgb(238, 231, 231);
+        }
+        #num1{
+            background-color: rgb(237, 162, 228); color: white; 
+            width: 15vw;
+            position: relative;
+            top: 15px;
+        }
+        #num2{
+            background-color: rgb(237, 162, 228); color: white; 
+            width: 15vw;
+            position: relative;
+            top: 15px;
+        }
+        .divbtn{
+            width: 6vw;
+            display: inline;
+            position: relative;
+            top: 15px;
+        }
+        .maindiv{
+            width: 60vw;
+            height: 100vh;
+            background-color: rgb(60, 2, 60);
+            padding-top: 40px;
+        }
+
+        @media screen and (max-width:400px){
+            .num1{
+                width: 1px;
+            }
+            .num2{
+                width: 1px;
+            }
+            .divbtn{
+                width: 3px;
+            }
+            .maindiv{
+                width: 80vw;
+            }
+        }
+    </style>
+</head>
+<body >
+    <center>
+    
+        <div class="maindiv">
+    <input   id="num1" type="number" >
+    <div class="divbtn" >
+    <button  id="b+"   >+</button>
+    <button id="b-">-</button>
+    <button id="b/">/</button>
+    <button  id="b*">*</button>
+    </div>
+    <input  id="num2" type="number" >
+
+    <button style="position:relative ; top: 15px;" id="calculate" >calculate</button><br><br><br>
+    <p id="p2" >your answear is:</p>      <p id="p" ></p>
+        </div>
+    </center>
+</body>
+<script>
+    //html cvladebi
+  var plus=document.getElementById("b+")
+  var minus=document.getElementById("b-")
+  var gayofa=document.getElementById("b/")
+  var gamravleba=document.getElementById("b*")  
+  var calculate=document.getElementById("calculate")
+  var num1=document.getElementById("num1")
+  var num2=document.getElementById("num2")
+  var p=document.getElementById("p")
+  var p2=document.getElementById("p2")
+  //cvladi vnaxot gansazgvrashi exmareba kods tu moxmarebels romel buttonze aqvs dawolili
+var vnaxot=0
+//cvkadu bloo, blo,ga,gaa ti xvdeba cvladi tu rodis unda sheicvalos buttonis feri
+  var bloo=1
+  ///shemdegi otxi funnqcia gansazgvravs gilakze titis dacherisas ferebis shecvlas da cvlaebs anichebrs mnishvnelobas shemdgomshi rom kalkulaciashi daexmaros kods
+plus.addEventListener("click",function(){
+    if(bloo==1){
+    plus.style.background="rgba(100, 3, 141, 0.501)"
+    bloo++
+    vnaxot=1
+    }else if(bloo==2){
+        plus.style.background="rgba(191, 58, 235, 0.501)" 
+        bloo--
+        vnaxot=0
+    }
+    minus.style.background="rgba(191, 58, 235, 0.501)"
+    gayofa.style.background="rgba(191, 58, 235, 0.501)"
+    gamravleba.style.background="rgba(191, 58, 235, 0.501)"
+})
+var blo=1
+minus.addEventListener("click",function(){
+    if(blo==1){
+    minus.style.background="rgba(100, 3, 141, 0.501)"
+    vnaxot=2
+    blo++
+    }else if(blo==2){
+        minus.style.background="rgba(191, 58, 235, 0.501)" 
+        vnaxot=0
+    blo--   }
+    plus.style.background="rgba(191, 58, 235, 0.501)"
+    gayofa.style.background="rgba(191, 58, 235, 0.501)"
+    gamravleba.style.background="rgba(191, 58, 235, 0.501)"
+})
+var ga=1
+gayofa.addEventListener("click",function(){
+    if(ga==1){
+    gayofa.style.background="rgba(100, 3, 141, 0.501)"
+    vnaxot=3
+    ga++
+    }else if(ga==2  ){
+        gayofa.style.background="rgba(191, 58, 235, 0.501)" 
+        vnaxot=0
+        ga--
+    }
+    plus.style.background="rgba(191, 58, 235, 0.501)"
+    minus.style.background="rgba(191, 58, 235, 0.501)"
+    gamravleba.style.background="rgba(191, 58, 235, 0.501)"
+})
+var gaa=1
+gamravleba.addEventListener("click",function(){
+    if(gaa==1){
+    gamravleba.style.background="rgba(100, 3, 141, 0.501)"
+    vnaxot=4
+    gaa++
+    }else if(gaa==2){
+        gamravleba.style.background="rgba(191, 58, 235, 0.501)" 
+        vnaxot=0
+        gaa--
+    }
+    plus.style.background="rgba(191, 58, 235, 0.501)"
+    minus.style.background="rgba(191, 58, 235, 0.501)"
+    gayofa.style.background="rgba(191, 58, 235, 0.501)"
+})
+// aq xdeba kalkulacia ukve gansazgvruli cvladebis sashvualebit, vnaxot==1->>+,vnaxot==2->>"-", vnaxot==3->>"/",vnaxot==4->>"*"
+calculate.addEventListener("click",function(){
+  if(vnaxot==1 && num1.value!="" && num2.value!=""){
+    p.innerText=num1.value+"+"+num2.value+"="+(parseInt(num1.value)+parseInt(num2.value))
+     p2.style.visibility="visible"
+     p.style.visibility="visible"
+     num1.value=""
+     num2.value=""
+  }else if(vnaxot==2  && num1.value!="" && num2.value!=""){
+    p.innerText=num1.value+"-"+num2.value+"="+(parseInt(num1.value)-parseInt(num2.value))
+    p2.style.visibility="visible"
+    p.style.visibility="visible"
+    num1.value=""
+     num2.value=""
+  }else if(vnaxot==3  && num1.value!="" && num2.value!=""){
+    p.innerText=num1.value+" / "+num2.value+"="+(parseInt(num1.value)/parseInt(num2.value))
+    p2.style.visibility="visible"
+    p.style.visibility="visible"
+    num1.value=""
+     num2.value=""
+  }else if(vnaxot==4  && num1.value!="" && num2.value!=""){
+    p.innerText=num1.value+"*"+num2.value+"="+(parseInt(num1.value)*parseInt(num2.value))
+    p2.style.visibility="visible"
+    p.style.visibility="visible"
+    num1.value=""
+     num2.value=""
+     //aq kodi ganixilavs im variantebs tu moxmarebeli ar daawva gilaks an ar sheavso inputi ricxvebit
+  }else if(vnaxot==0){
+      alert("please press the button which u want")
+  }else if(num1.value==""){
+      alert("pls fill the left input")
+  }else if(num2.value==""){
+      alert("pls fill the right input")
+  }else if(num1.value =="" && num2.value==""){
+      alert("please fill both inputs")
+  }else{
+      alert("eror")
+  }
+})
+</script>
+</html>
